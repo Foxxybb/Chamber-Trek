@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx4au65d7kl87"]
+
+[ext_resource type="Script" path="res://Scripts/GameUI.cs" id="1_xkxqv"]
+[ext_resource type="PackedScene" uid="uid://c2dxjfkrmk7u7" path="res://Prefabs/SpritePreloads/ReadyAn.tscn" id="2_fg7h3"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xkxqv")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Canvas"]
+visible = false
+offset_left = 480.0
+offset_top = -80.0
+offset_right = 800.0
+offset_bottom = 240.0
+size_flags_vertical = 3
+color = Color(0.180392, 0.180392, 0.180392, 0.784314)
+
+[node name="AnimatedSprite2D" parent="Canvas" instance=ExtResource("2_fg7h3")]

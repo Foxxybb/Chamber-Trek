@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://hdg2sj1ye0q0"]
+
+[ext_resource type="Script" path="res://Scripts/Box.cs" id="1_4m5xq"]
+[ext_resource type="Texture2D" uid="uid://cn8yirpropv7s" path="res://Sprites/box/still/0001.png" id="2_h4842"]
+[ext_resource type="Script" path="res://Scripts/HitHandler.cs" id="61_4y663"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg3de"]
+size = Vector2(80, 80)
+
+[node name="Box" type="CharacterBody2D"]
+script = ExtResource("1_4m5xq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jg3de")
+
+[node name="HitHandler" type="Node2D" parent="."]
+script = ExtResource("61_4y663")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+scale = Vector2(2, 2)
+texture = ExtResource("2_h4842")

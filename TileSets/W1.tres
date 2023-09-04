@@ -1,0 +1,57 @@
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://c3hy5e51rl42k"]
+
+[ext_resource type="Texture2D" uid="uid://bh4nllauoa0x5" path="res://Sprites/blocks/w1/w1-block.png" id="1_60giu"]
+[ext_resource type="Texture2D" uid="uid://c2fppkcwy7hrh" path="res://Sprites/blocks/w1/w1-semi.png" id="1_qfpqf"]
+[ext_resource type="Texture2D" uid="uid://dpn2q041ujwa3" path="res://Sprites/blocks/w1/w1-ground.png" id="2_bihfv"]
+[ext_resource type="Texture2D" uid="uid://bcx587mon8kr" path="res://Sprites/blocks/w1/w1-halfB.png" id="4_g3538"]
+[ext_resource type="Texture2D" uid="uid://cuaffg1kr3j1" path="res://Sprites/blocks/w1/w1-halfT.png" id="4_y4ykl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnqc1"]
+texture = ExtResource("1_qfpqf")
+texture_region_size = Vector2i(80, 80)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -40, 40, -40, 40, 0, -40, 0)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovcm1"]
+texture = ExtResource("2_bihfv")
+texture_region_size = Vector2i(80, 80)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0kn6"]
+texture = ExtResource("4_g3538")
+texture_region_size = Vector2i(80, 80)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, 0, 40, 0, 40, 40, -40, 40)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i16ip"]
+texture = ExtResource("1_60giu")
+texture_region_size = Vector2i(80, 80)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvq7h"]
+texture = ExtResource("4_y4ykl")
+texture_region_size = Vector2i(80, 80)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -40, 40, -40, 40, 0, -40, 0)
+
+[resource]
+tile_size = Vector2i(80, 80)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_ovcm1")
+sources/3 = SubResource("TileSetAtlasSource_i16ip")
+sources/6 = SubResource("TileSetAtlasSource_wvq7h")
+sources/0 = SubResource("TileSetAtlasSource_cnqc1")
+sources/2 = SubResource("TileSetAtlasSource_y0kn6")

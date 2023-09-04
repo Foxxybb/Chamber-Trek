@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6e8hk4f6f0in"]
+
+[ext_resource type="SpriteFrames" uid="uid://di42sippb51kn" path="res://Sprites/SpriteFrames/PlayerSF.tres" id="1_ifx1e"]
+
+[node name="testSprite" type="Node2D"]
+
+[node name="newPlayer" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("1_ifx1e")
+animation = &"stomp"
+autoplay = "idle"

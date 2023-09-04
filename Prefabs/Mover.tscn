@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://xuquwdopviut"]
+
+[ext_resource type="Texture2D" uid="uid://bds7t6m5cwca7" path="res://Sprites/blocks/w1/w1-moving.png" id="1_ch804"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ahu"]
+size = Vector2(160, 40)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 25)
+texture = ExtResource("1_ch804")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_r5ahu")
+one_way_collision = true

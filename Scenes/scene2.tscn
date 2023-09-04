@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://bpyxhjy0y3nwq"]
+
+[ext_resource type="Script" path="res://Scripts/GameScene.cs" id="1_10fwn"]
+[ext_resource type="PackedScene" uid="uid://udt21vw7twa2" path="res://Prefabs/Camera.tscn" id="2_cymoo"]
+[ext_resource type="PackedScene" uid="uid://4wsqonxuovt0" path="res://Prefabs/DebugUI.tscn" id="2_kx27c"]
+[ext_resource type="PackedScene" uid="uid://dx4au65d7kl87" path="res://Prefabs/GameUI.tscn" id="2_pkr3f"]
+[ext_resource type="TileSet" uid="uid://c3hy5e51rl42k" path="res://TileSets/W1.tres" id="5_a3k7w"]
+[ext_resource type="PackedScene" uid="uid://vl4u8460ouog" path="res://Prefabs/Player.tscn" id="5_s3oau"]
+[ext_resource type="PackedScene" uid="uid://hdg2sj1ye0q0" path="res://Prefabs/Box.tscn" id="7_t4fqc"]
+[ext_resource type="PackedScene" uid="uid://c5u7grpnnff30" path="res://Prefabs/Key.tscn" id="8_22sa6"]
+[ext_resource type="Script" path="res://Scripts/BaseTileMap.cs" id="8_rga2h"]
+[ext_resource type="PackedScene" uid="uid://buoneildfrh1k" path="res://Prefabs/Door.tscn" id="9_tm7dw"]
+[ext_resource type="PackedScene" uid="uid://d4hbsua0ip4hf" path="res://Prefabs/MoverHome.tscn" id="10_hlf25"]
+[ext_resource type="Texture2D" uid="uid://b6gvpkkwsfn2o" path="res://Backgrounds/level1ForeCrop.png" id="11_6bq04"]
+[ext_resource type="Texture2D" uid="uid://dbvs1s2kd13fj" path="res://Backgrounds/level1Back.png" id="11_7ct28"]
+[ext_resource type="PackedScene" uid="uid://d3bwvqppbjrhd" path="res://Prefabs/Bashbox.tscn" id="14_cb6sg"]
+
+[node name="Scene" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_10fwn")
+
+[node name="Border" type="Node2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="TL" type="Node2D" parent="Border"]
+position = Vector2(-640, -400)
+
+[node name="ColorRect" type="ColorRect" parent="Border/TL"]
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = 3.14159
+color = Color(1, 0, 1, 1)
+
+[node name="BR" type="Node2D" parent="Border"]
+position = Vector2(1280, 360)
+
+[node name="ColorRect" type="ColorRect" parent="Border/BR"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 1, 1)
+
+[node name="Camera2D" parent="." instance=ExtResource("2_cymoo")]
+position = Vector2(640, 360)
+
+[node name="GameUI" parent="." instance=ExtResource("2_pkr3f")]
+
+[node name="DebugUI" parent="." instance=ExtResource("2_kx27c")]
+
+[node name="Backgrounds" type="Control" parent="."]
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Backgrounds"]
+layer = 0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Backgrounds/CanvasLayer"]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Backgrounds/CanvasLayer/ParallaxBackground"]
+z_as_relative = false
+position = Vector2(960, 440)
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/CanvasLayer/ParallaxBackground/ParallaxLayer"]
+self_modulate = Color(0, 1, 1, 0.207843)
+z_as_relative = false
+position = Vector2(0, -40)
+scale = Vector2(2, 2)
+texture = ExtResource("11_6bq04")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Backgrounds/CanvasLayer/ParallaxBackground"]
+z_index = -6
+z_as_relative = false
+position = Vector2(960, 440)
+motion_scale = Vector2(-1, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+z_index = -1
+z_as_relative = false
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_7ct28")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("5_a3k7w")
+format = 2
+layer_0/tile_data = PackedInt32Array(524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 458752, 3, 0, 393216, 3, 0, 327680, 3, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 393230, 3, 0, 393229, 3, 0, 458765, 3, 0, 458766, 3, 0)
+script = ExtResource("8_rga2h")
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource("5_a3k7w")
+format = 2
+layer_0/tile_data = PackedInt32Array(327682, 0, 0, 327683, 0, 0, 327685, 0, 0, 327686, 0, 0, 327688, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("5_s3oau")]
+position = Vector2(480, 600)
+
+[node name="Box" parent="." instance=ExtResource("7_t4fqc")]
+position = Vector2(800, 160)
+
+[node name="Key" parent="." instance=ExtResource("8_22sa6")]
+position = Vector2(240, 360)
+
+[node name="Door" parent="." instance=ExtResource("9_tm7dw")]
+position = Vector2(240, 560)
+
+[node name="MoverHome" parent="." instance=ExtResource("10_hlf25")]
+position = Vector2(800, 240)
+goalOffset = Vector2(0, 2)
+
+[node name="Bashbox" parent="." instance=ExtResource("14_cb6sg")]
+position = Vector2(880, 600)
+facingRight = false

@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnsq8dcuqxqjb"]
+
+[ext_resource type="Script" path="res://Scripts/GameScene.cs" id="1_gv1tq"]
+[ext_resource type="PackedScene" uid="uid://udt21vw7twa2" path="res://Prefabs/Camera.tscn" id="2_12f6j"]
+[ext_resource type="Texture2D" path="res://Sprites/blocks/world1block.png" id="2_hyugy"]
+[ext_resource type="PackedScene" uid="uid://vl4u8460ouog" path="res://Prefabs/Player.tscn" id="3_fjj36"]
+[ext_resource type="Texture2D" path="res://Sprites/blocks/world1ground.png" id="3_s2101"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4ipm"]
+texture = ExtResource("2_hyugy")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dkyf"]
+texture = ExtResource("3_s2101")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_7yflx"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_u4ipm")
+sources/3 = SubResource("TileSetAtlasSource_2dkyf")
+
+[node name="Scene" type="Node2D"]
+script = ExtResource("1_gv1tq")
+
+[node name="Camera2D" parent="." instance=ExtResource("2_12f6j")]
+position = Vector2(-64, 0)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-896, 64)
+tile_set = SubResource("TileSet_7yflx")
+format = 2
+layer_0/name = "Stage"
+layer_0/tile_data = PackedInt32Array(-65536, 2, 0, 0, 2, 0, 65536, 2, 0, 131072, 2, 0, 196608, 2, 0, 262144, 3, 0, 262145, 3, 0, 262146, 3, 0, 262147, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 262151, 3, 0, 262152, 3, 0, 262153, 3, 0, 262154, 3, 0, 262155, 3, 0, 262156, 3, 0, 262157, 3, 0, -131072, 2, 0, -196608, 2, 0, -262144, 2, 0, -327680, 2, 0, -393216, 2, 0, 262158, 3, 0, 327694, 2, 0, 327693, 2, 0, 327692, 2, 0, 327691, 2, 0, 327690, 2, 0, 327689, 2, 0, 327688, 2, 0, 327687, 2, 0, 327686, 3, 0, 327685, 2, 0, 327684, 2, 0, 327683, 2, 0, 327682, 2, 0, 327681, 2, 0, 327680, 2, 0, 393215, 2, 0, 327679, 3, 0, 262143, 2, 0, 196607, 2, 0, 131071, 2, 0, 65535, 2, 0, -1, 2, 0, -65537, 2, 0, -131073, 2, 0, -196609, 2, 0, -262145, 2, 0, -327681, 2, 0, 393214, 2, 0, 327678, 3, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_fjj36")]
+position = Vector2(-64, 512)
+scale = Vector2(2, 2)
+
+[node name="Border" type="Node2D" parent="."]
+position = Vector2(-64, 0)
+
+[node name="TL" type="Node2D" parent="Border"]
+position = Vector2(-1216, -576)
+
+[node name="ColorRect" type="ColorRect" parent="Border/TL"]
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = 1.5708
+color = Color(1, 0, 1, 1)
+
+[node name="BR" type="Node2D" parent="Border"]
+position = Vector2(1344, 704)
+
+[node name="ColorRect" type="ColorRect" parent="Border/BR"]
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = 4.71239
+color = Color(1, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Border"]
+offset_left = -1088.0
+offset_right = 1088.0
+offset_bottom = 40.0
+color = Color(1, 0, 1, 1)

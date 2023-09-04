@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c6kr72r0bmng8"]
+
+[ext_resource type="AudioStream" uid="uid://bt6ybw0q52srv" path="res://Audio/Sound/Hits/busterhit.wav" id="1_aa1l4"]
+[ext_resource type="Script" path="res://Resources/Actions/Action.cs" id="1_dc12e"]
+[ext_resource type="AudioStream" uid="uid://rdgvwtmqf2mj" path="res://Audio/Sound/Player/turnPunch.wav" id="3_tyshk"]
+
+[resource]
+script = ExtResource("1_dc12e")
+name = "turnpunch"
+swingSound = ExtResource("3_tyshk")
+hitSound = ExtResource("1_aa1l4")
+cancelSound = false
+duration = 43
+startup = 9
+active = 12
+drag = 20.0
+gravScale = 2.0
+force = Vector2(900, -350)
+forceDelay = 6
+resetX = true
+resetY = true
+actionSpeed = 0.0
+actionAccel = 0.0
+knockback = Vector2(500, -500)
+selfKnockback = Vector2(0, 0)
+stageKnockback = Vector2(0, 0)
+damage = 0
+hitstun = 10
+hitstop = 10
+launcher = false
+reverseHitbox = false
+size = Vector2(80, 80)
+offset = Vector2(50, -20)
+landCancel = false
+landFrame = 0
+holdFrame = 0

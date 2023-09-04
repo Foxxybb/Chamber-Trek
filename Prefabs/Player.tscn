@@ -1,0 +1,83 @@
+[gd_scene load_steps=15 format=3 uid="uid://vl4u8460ouog"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_j5gyc"]
+[ext_resource type="Script" path="res://Scripts/States/Player/Stun.cs" id="10_qw3h6"]
+[ext_resource type="Texture2D" uid="uid://bcs86hg4tajo4" path="res://Sprites/player/idle/0001.png" id="12_mvql6"]
+[ext_resource type="Script" path="res://Scripts/States/Player/Turn.cs" id="177_j68kw"]
+[ext_resource type="Script" path="res://Scripts/States/StateMachine.cs" id="200_gf7h4"]
+[ext_resource type="Script" path="res://Scripts/States/Player/Idle.cs" id="201_3vdu4"]
+[ext_resource type="Script" path="res://Scripts/States/Player/Run.cs" id="202_j5plf"]
+[ext_resource type="Script" path="res://Scripts/States/Player/Air.cs" id="203_ab3bc"]
+[ext_resource type="Script" path="res://Scripts/States/Player/PlayerAction.cs" id="203_wx77e"]
+[ext_resource type="Script" path="res://Scripts/States/Player/Dash.cs" id="327_bhtac"]
+[ext_resource type="Script" path="res://Scripts/States/Player/Spawn.cs" id="381_vpcna"]
+[ext_resource type="Script" path="res://Scripts/HitHandler.cs" id="387_d2mhb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho6ln"]
+size = Vector2(70, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgydr"]
+size = Vector2(70, 125)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_j5gyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22.5)
+shape = SubResource("RectangleShape2D_ho6ln")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("200_gf7h4")
+
+[node name="Spawn" type="Node2D" parent="StateMachine"]
+script = ExtResource("381_vpcna")
+
+[node name="Idle" type="Node2D" parent="StateMachine"]
+script = ExtResource("201_3vdu4")
+
+[node name="Run" type="Node2D" parent="StateMachine"]
+script = ExtResource("202_j5plf")
+
+[node name="Air" type="Node2D" parent="StateMachine"]
+script = ExtResource("203_ab3bc")
+
+[node name="Turn" type="Node2D" parent="StateMachine"]
+script = ExtResource("177_j68kw")
+
+[node name="Dash" type="Node2D" parent="StateMachine"]
+script = ExtResource("327_bhtac")
+
+[node name="PlayerAction" type="Node2D" parent="StateMachine"]
+script = ExtResource("203_wx77e")
+
+[node name="Stun" type="Node2D" parent="StateMachine"]
+script = ExtResource("10_qw3h6")
+
+[node name="HitHandler" type="Node2D" parent="."]
+script = ExtResource("387_d2mhb")
+
+[node name="StateText" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -120.0
+offset_right = 40.0
+offset_bottom = -80.0
+text = "state"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = -1
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -22.5)
+shape = SubResource("RectangleShape2D_kgydr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -39)
+scale = Vector2(2, 2)
+texture = ExtResource("12_mvql6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

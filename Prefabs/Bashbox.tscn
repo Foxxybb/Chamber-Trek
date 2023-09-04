@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3bwvqppbjrhd"]
+
+[ext_resource type="Script" path="res://Scripts/Bashbox.cs" id="1_mby11"]
+[ext_resource type="Script" path="res://Scripts/HitHandler.cs" id="2_3tf5t"]
+[ext_resource type="Script" path="res://Scripts/States/StateMachine.cs" id="3_1576l"]
+[ext_resource type="Script" path="res://Scripts/States/Bashbox/BashSleep.cs" id="4_86byk"]
+[ext_resource type="Script" path="res://Scripts/States/Bashbox/BashIdle.cs" id="5_gay1b"]
+[ext_resource type="Script" path="res://Scripts/States/Bashbox/BashAction.cs" id="6_k3nj7"]
+[ext_resource type="Script" path="res://Scripts/States/Bashbox/BashStun.cs" id="7_n8pku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg3de"]
+size = Vector2(80, 80)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_khg1w"]
+load_path = "res://.godot/imported/0001.png-8642b0d8d46450a0420825e05cc506f0.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebpyb"]
+size = Vector2(320, 320)
+
+[node name="Bashbox" type="CharacterBody2D"]
+script = ExtResource("1_mby11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jg3de")
+
+[node name="HitHandler" type="Node2D" parent="."]
+script = ExtResource("2_3tf5t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_khg1w")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("3_1576l")
+
+[node name="BashSleep" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_86byk")
+
+[node name="BashIdle" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_gay1b")
+
+[node name="BashAction" type="Node2D" parent="StateMachine"]
+script = ExtResource("6_k3nj7")
+
+[node name="BashStun" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_n8pku")
+
+[node name="StateText" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -160.0
+offset_right = 40.0
+offset_bottom = -120.0
+text = "state"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ebpyb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

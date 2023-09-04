@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c7h4lwo407u8m"]
+
+[ext_resource type="Script" path="res://Resources/Actions/Action.cs" id="1_56r75"]
+[ext_resource type="AudioStream" uid="uid://n60uj66h7l2n" path="res://Audio/Sound/Hits/upperHit.wav" id="1_cixm4"]
+[ext_resource type="AudioStream" uid="uid://d365tf1plqtjx" path="res://Audio/Sound/Player/upper.wav" id="2_ei1cx"]
+
+[resource]
+script = ExtResource("1_56r75")
+name = "uppercut"
+swingSound = ExtResource("2_ei1cx")
+hitSound = ExtResource("1_cixm4")
+cancelSound = true
+duration = -1
+startup = 3
+active = 20
+drag = 5.0
+gravScale = 3.0
+force = Vector2(400, -1300)
+forceDelay = 8
+resetX = true
+resetY = true
+actionSpeed = 300.0
+actionAccel = 10.0
+knockback = Vector2(400, -800)
+selfKnockback = Vector2(0, 0)
+stageKnockback = Vector2(0, 0)
+damage = 0
+hitstun = 10
+hitstop = 15
+launcher = false
+reverseHitbox = false
+size = Vector2(100, 120)
+offset = Vector2(30, -50)
+landCancel = true
+landFrame = 20
+holdFrame = 0

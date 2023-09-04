@@ -1,0 +1,153 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfgqj3echk3st"]
+
+[sub_resource type="Animation" id="Animation_264kc"]
+resource_name = "transition_in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1064, -237.333), Vector2(-1064, 664)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1064, -1138.67), Vector2(-1064, -2040)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1800, -688), Vector2(-3272, -688)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Right:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-330.667, -688), Vector2(1136, -688)]
+}
+
+[sub_resource type="Animation" id="Animation_giy3k"]
+resource_name = "transition_out"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1064, 664), Vector2(-1064, -237.333)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1064, -2040), Vector2(-1064, -1138.67)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3272, -688), Vector2(-1800, -688)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Right:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1136, -688), Vector2(-330.667, -688)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gnit7"]
+_data = {
+"transition_in": SubResource("Animation_264kc"),
+"transition_out": SubResource("Animation_giy3k")
+}
+
+[node name="Transition" type="Node2D"]
+z_index = 5
+
+[node name="TransitionAnimator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Bot")
+autoplay = "transition_in"
+libraries = {
+"": SubResource("AnimationLibrary_gnit7")
+}
+
+[node name="Bot" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -1064.0
+offset_top = 664.0
+offset_right = 1080.0
+offset_bottom = 1952.0
+color = Color(0, 0, 0, 1)
+
+[node name="Top" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -1064.0
+offset_top = -2040.0
+offset_right = 1080.0
+offset_bottom = -752.0
+color = Color(0, 0, 0, 1)
+
+[node name="Left" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -3272.0
+offset_top = -688.0
+offset_right = -1128.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="Right" type="ColorRect" parent="."]
+z_index = 1
+offset_left = 1136.0
+offset_top = -688.0
+offset_right = 3280.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dhiv3h3p54uaa"]
+
+[ext_resource type="AudioStream" uid="uid://bubvmvj0fe5wd" path="res://Audio/Sound/Bashbox/bashLunge2.wav" id="2_o1fae"]
+[ext_resource type="Script" path="res://Resources/Actions/Action.cs" id="4_70k1a"]
+
+[resource]
+script = ExtResource("4_70k1a")
+name = "bash"
+swingSound = ExtResource("2_o1fae")
+cancelSound = false
+duration = 60
+startup = 40
+active = 15
+drag = 0.0
+gravScale = 0.0
+force = Vector2(550, -400)
+forceDelay = 35
+resetX = false
+resetY = false
+actionSpeed = 0.0
+actionAccel = 0.0
+knockback = Vector2(300, -300)
+selfKnockback = Vector2(0, 0)
+stageKnockback = Vector2(0, 0)
+damage = 0
+hitstun = 10
+hitstop = 5
+launcher = false
+reverseHitbox = false
+size = Vector2(100, 100)
+offset = Vector2(0, 0)
+landCancel = false
+landFrame = 0
+holdFrame = 0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4gog6bu3q3f2"]
+
+[ext_resource type="SpriteFrames" uid="uid://di42sippb51kn" path="res://Sprites/SpriteFrames/PlayerSF.tres" id="1_0hi0g"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(0, -39)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("1_0hi0g")
+animation = &"idle"
+frame_progress = 0.00834021

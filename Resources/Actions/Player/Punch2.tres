@@ -1,0 +1,40 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://ffn682vbdg5n"]
+
+[ext_resource type="AudioStream" uid="uid://cljimsy2fwteo" path="res://Audio/Sound/Hits/simpleStrike2.wav" id="1_7onps"]
+[ext_resource type="Resource" uid="uid://j0k8vou08lag" path="res://Resources/Actions/Player/UppercutCharge2.tres" id="1_ilswl"]
+[ext_resource type="Resource" uid="uid://bjlrauj8nw6yx" path="res://Resources/Actions/Player/Kick.tres" id="1_xh7u8"]
+[ext_resource type="Script" path="res://Resources/Actions/Action.cs" id="1_yat8p"]
+[ext_resource type="AudioStream" uid="uid://yu77l4rgokr3" path="res://Audio/Sound/Player/punch2_swing.wav" id="4_tlniw"]
+
+[resource]
+script = ExtResource("1_yat8p")
+name = "punch2"
+swingSound = ExtResource("4_tlniw")
+hitSound = ExtResource("1_7onps")
+cancelSound = false
+duration = 34
+startup = 14
+active = 5
+drag = 20.0
+gravScale = 0.0
+force = Vector2(300, 0)
+forceDelay = 8
+resetX = false
+resetY = false
+actionSpeed = 0.0
+actionAccel = 0.0
+knockback = Vector2(250, -300)
+selfKnockback = Vector2(0, 0)
+stageKnockback = Vector2(0, 0)
+damage = 0
+hitstun = 30
+hitstop = 5
+launcher = false
+reverseHitbox = false
+size = Vector2(60, 60)
+offset = Vector2(70, -30)
+landCancel = false
+landFrame = 0
+holdFrame = 17
+nextAction = ExtResource("1_xh7u8")
+holdAction = ExtResource("1_ilswl")

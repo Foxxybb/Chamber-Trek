@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://buoneildfrh1k"]
+
+[ext_resource type="Script" path="res://Scripts/Door.cs" id="1_bb42r"]
+[ext_resource type="Texture2D" uid="uid://ctegk11388uvy" path="res://Sprites/door/locked/0001.png" id="2_h52mq"]
+[ext_resource type="Texture2D" uid="uid://ks43u5layj87" path="res://Sprites/lock/locked/0001.png" id="3_w8p8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jg3de"]
+size = Vector2(60, 70)
+
+[node name="Door" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 4
+script = ExtResource("1_bb42r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_jg3de")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_h52mq")
+offset = Vector2(0, 5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("3_w8p8q")
+offset = Vector2(0, 5)

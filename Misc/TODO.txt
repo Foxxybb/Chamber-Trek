@@ -1,0 +1,24 @@
+
+DO NOW : ----------------------------------------------------------------------------
+
+setup backup/github repo
+
+stun state: player
+
+DO LATER : --------------------------------------------------------------------------
+
+
+NOTES : ------------------------------------------
+
+old player render: 100px with 30 degree lighting
+
+new player render 120px with world lighting
+
+ALL PHYSICS UPDATES ARE TIED TO FRAMERATE _Process (60 fps)
+GAME JITTERS IF USING HIGH REFRESH MONITOR IN WINDOWED MODE (60+ fps)
+
+game resolution
+1280 pixels / 16 tiles = 80px per tile
+720 pixels / 80px tiles = 9 tiles
+
+16x9 at 80px

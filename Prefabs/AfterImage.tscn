@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgh6l1g8ghmb1"]
+
+[ext_resource type="Script" path="res://Scripts/AfterImage.cs" id="1_gdei2"]
+[ext_resource type="SpriteFrames" uid="uid://di42sippb51kn" path="res://Sprites/SpriteFrames/PlayerSF.tres" id="2_4m70r"]
+[ext_resource type="Script" path="res://Scripts/HitHandler.cs" id="387_go2yd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho6ln"]
+size = Vector2(78, 120)
+
+[node name="AfterImage" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_gdei2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_ho6ln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -39)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_4m70r")
+animation = &"bigflip"
+autoplay = "idle"
+
+[node name="HitHandler" type="Node2D" parent="."]
+script = ExtResource("387_go2yd")
+
+[node name="StateText" type="Label" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -120.0
+offset_right = 40.0
+offset_bottom = -80.0
+text = "state"
+horizontal_alignment = 1
+vertical_alignment = 1
