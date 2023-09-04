@@ -42,6 +42,7 @@ public partial class Hitbox : Node2D
 			{
 				case "Player":
 					GD.Print("player hit");
+					GD.Print("test");
 					break;
 				case "BaseTileMap":
 					if (stageKnockback != Vector2.Zero)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_j5gyc"]
 [ext_resource type="Script" path="res://Scripts/States/Player/Stun.cs" id="10_qw3h6"]
-[ext_resource type="Texture2D" uid="uid://bcs86hg4tajo4" path="res://Sprites/player/idle/0001.png" id="12_mvql6"]
+[ext_resource type="Texture2D" uid="uid://dtrvjfns0wp3r" path="res://Sprites/player/idle/0001.png" id="12_mvql6"]
 [ext_resource type="Script" path="res://Scripts/States/Player/Turn.cs" id="177_j68kw"]
 [ext_resource type="Script" path="res://Scripts/States/StateMachine.cs" id="200_gf7h4"]
 [ext_resource type="Script" path="res://Scripts/States/Player/Idle.cs" id="201_3vdu4"]
