@@ -18,6 +18,7 @@ public partial class BashStun : State
 
         // cancel sounds
         SoundManager.Instance.CutSoundsAtNode(bashbox);
+
     }
 
     public override void UpdateLogic(double delta)

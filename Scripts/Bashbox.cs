@@ -66,7 +66,6 @@ public partial class Bashbox : CharacterBody2D
 	}
 
 
-
 	Node2D playerNode; // enemies have player node in memory
 
 	// state machine
@@ -303,6 +302,7 @@ public partial class Bashbox : CharacterBody2D
 		}
 	}
 
+	// THIS IS NOT USED
 	void HandlePhysics(double delta){
 		if (!InHitstop){
 			//bashboxSM.currentState.UpdatePhysics(delta);

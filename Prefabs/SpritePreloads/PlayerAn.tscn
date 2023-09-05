@@ -7,4 +7,4 @@ position = Vector2(0, -39)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("1_0hi0g")
 animation = &"idle"
-frame_progress = 0.00834021
+frame_progress = 0.623123

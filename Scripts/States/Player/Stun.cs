@@ -14,11 +14,22 @@ public partial class Stun : State
     {
         base.Enter();
         player.playerStateDebug = "stun";
+        player.ChangeAnimationState("fall");
+        player.an.SelfModulate = Color.Color8(255,0,0,255);
+
+        // cancel sounds
+        SoundManager.Instance.CutSoundsAtNode(player);
     }
 
     public override void UpdateLogic(double delta)
     {
         base.UpdateLogic(delta);
+
+        // exit hitstun
+        if (!player.InHitstun){
+            player.playerSM.ChangeState(player.air);
+            //player.ChangeAnimationState("fall");
+        }
         
     }
 
@@ -29,10 +40,10 @@ public partial class Stun : State
         
 		if (!player.IsOnFloor())
 		{
-			velocity.Y += player.gravity * player.gravityScale * (float)delta;
+			velocity.Y += player.gravity * player.stunGravityScale * (float)delta;
 		}
 
-		velocity.X = Mathf.MoveToward(player.Velocity.X, 0, player.drag);
+		velocity.X = Mathf.MoveToward(player.Velocity.X, 0, player.stunDrag);
 		
 
         player.Velocity = velocity;
@@ -41,6 +52,7 @@ public partial class Stun : State
     public override void Exit()
     {
         base.Exit();
+        player.an.SelfModulate = Color.Color8(255,255,255,255);
     }
     
 }

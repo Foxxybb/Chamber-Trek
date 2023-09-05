@@ -44,7 +44,7 @@ public partial class Air : State
 		// gravity of rigidbody changes if jump is held
 		// if button is held and moving UP, allow for more height (mario 1 style)
 		if (Input.IsActionPressed("jump_action") && (player.Velocity.Y < 0)){
-		    player.gravityScale = player.altGravityScale;
+		    player.gravityScale = player.jumpGravityScale;
 		} else {
 		    player.gravityScale = player.baseGravityScale;
 		}

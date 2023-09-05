@@ -40,10 +40,6 @@ public partial class Hitbox : Node2D
 			
 			switch (body.GetType().ToString())
 			{
-				case "Player":
-					GD.Print("player hit");
-					GD.Print("test");
-					break;
 				case "BaseTileMap":
 					if (stageKnockback != Vector2.Zero)
 					{
@@ -52,6 +48,12 @@ public partial class Hitbox : Node2D
 						// play stagebounce sound
 						SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.wallbounce, hitboxOwner, -1);
 					}
+					break;
+				case "Player":
+					GD.Print("player hit");
+					ownerHH.ApplyHit(0, hitstop, selfKnockback);
+					victimHH.ApplyHit(hitstun, hitstop, knockback);
+					SoundManager.Instance.PlaySoundAtNode(hitboxAction.hitSound, hitboxOwner, 0);
 					break;
 				case "Box":
 					ownerHH.ApplyHit(0, hitstop, selfKnockback);
@@ -76,7 +78,6 @@ public partial class Hitbox : Node2D
 					break;
 				default:
 					break;
-
 			}
 		}
     }

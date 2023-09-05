@@ -10,15 +10,20 @@ public partial class Player : CharacterBody2D
 	public float gravityScale = 1;
 	// used for controlling falling speed based on player input
 	public float baseGravityScale = 2f; // default gravity scale
-	public float altGravityScale = 1.2f; // increases jump height
+	public float jumpGravityScale = 1.2f; // increases jump height when jump action is held
+	public float stunGravityScale = 3f;
+
+	public float drag = 20;
+	public float airDrag = 5;
+	public float stunDrag = 10f;
 
 	public float runSpeed = 425;
 	public float accel = 15;
-	public float drag = 20;
+	
 
 	public float airSpeed = 400;
 	public float airAccel = 7.5f;
-	public float airDrag = 5;
+	
 
 	public float baseActionDrag = 10;
 	
@@ -70,6 +75,24 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
+	private bool inHitstun;
+	public bool InHitstun{
+		get {return inHitstun;}
+		set{
+			if (value == inHitstun){
+				return;
+			} else {
+				inHitstun = value;
+				
+				if(inHitstun){
+					EnterHitstun();
+				} else {
+					ExitHitstun();
+				}
+			}
+		}
+	}
+
 	// Statemachine and States
 	public StateMachine playerSM;
 	public Spawn spawn;
@@ -79,13 +102,9 @@ public partial class Player : CharacterBody2D
 	public Turn turn;
 	public PlayerAction action;
 	public Dash dash;
-	// [HideInInspector] public Stun stun;
-	
-	// Components
-	// [HideInInspector] public AudioSource au;
+	public Stun stun;
 	
 	public AnimatedSprite2D an; // public Animator an;
-	//public AudioStreamPlayer2D au;
 	public Label la; // used to display state
 	public HitHandler hh; // handles hitstop/hitstun
 
@@ -129,7 +148,7 @@ public partial class Player : CharacterBody2D
 		turn = (Turn)this.GetNode("StateMachine/Turn");
 		action = (PlayerAction)this.GetNode("StateMachine/PlayerAction");
 		dash = (Dash)this.GetNode("StateMachine/Dash");
-		// stun = new Stun(this, playerSM);
+		stun = (Stun)this.GetNode("StateMachine/Stun");
 
 		playerSM.Initialize(spawn); 
 
@@ -157,7 +176,7 @@ public partial class Player : CharacterBody2D
 			//hh.facingRight = facingRight;
 			
 			HandleHitstop();
-			// HandleHitstun();
+			HandleHitstun();
 			// GetAirTime();
 			// HandleGround();
 
@@ -368,6 +387,14 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
+	public void EnterHitstun(){
+
+	}
+
+	public void ExitHitstun(){
+		
+	}
+
 	// polls HitHandler (hh) for ticks on hitstop and hitstun, and stored velocity
 	void HandleHitstop(){
 
@@ -402,9 +429,11 @@ public partial class Player : CharacterBody2D
 	}
 
 	void HandleHitstun(){
-		// if (hh.inHitstun && (playerSM.currentState != stun)){
-		//     playerSM.ChangeState(stun);
-		// }
+		InHitstun = (hh.inHitstun) ? true : false;
+
+		if (InHitstun && (playerSM.currentState != stun)){
+			playerSM.ChangeState(stun);
+		}
 	}
 
 	// function to count frames when player is falling (changes volume of landing sound)

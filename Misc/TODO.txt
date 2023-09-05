@@ -1,12 +1,13 @@
 
 DO NOW : ----------------------------------------------------------------------------
 
-setup backup/github repo
+adjust stun values
 
-stun state: player
+setup launch state
 
 DO LATER : --------------------------------------------------------------------------
 
+sound effects exporation?
 
 NOTES : ------------------------------------------
 
