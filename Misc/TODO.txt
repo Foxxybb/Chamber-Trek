@@ -7,7 +7,11 @@ setup launch state
 
 DO LATER : --------------------------------------------------------------------------
 
-sound effects exporation?
+sound effects dive
+
+music dive
+
+MvDK dive
 
 NOTES : ------------------------------------------
 
