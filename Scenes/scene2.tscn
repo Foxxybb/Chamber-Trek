@@ -87,7 +87,7 @@ texture = ExtResource("11_7ct28")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("5_a3k7w")
 format = 2
-layer_0/tile_data = PackedInt32Array(524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 458752, 3, 0, 393216, 3, 0, 327680, 3, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 393230, 3, 0, 393229, 3, 0, 458765, 3, 0, 458766, 3, 0)
+layer_0/tile_data = PackedInt32Array(524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 458752, 3, 0, 393216, 3, 0, 327680, 3, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 393230, 3, 0, 393229, 3, 0, 458765, 3, 0, 458766, 3, 0, 458775, 3, 0, 393239, 3, 0)
 script = ExtResource("8_rga2h")
 
 [node name="TileMap2" type="TileMap" parent="."]
@@ -96,7 +96,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327682, 0, 0, 327683, 0, 0, 327685, 0, 0, 327686, 0, 0, 327688, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_s3oau")]
-position = Vector2(480, 600)
+position = Vector2(1360, 600)
 
 [node name="Box" parent="." instance=ExtResource("7_t4fqc")]
 position = Vector2(800, 200)
@@ -112,5 +112,5 @@ position = Vector2(800, 240)
 goalOffset = Vector2(0, 2)
 
 [node name="Bashbox" parent="." instance=ExtResource("14_cb6sg")]
-position = Vector2(880, 600)
+position = Vector2(1640, 600)
 facingRight = false

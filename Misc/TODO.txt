@@ -1,11 +1,13 @@
 
 DO NOW : ----------------------------------------------------------------------------
 
-adjust stun values
+allow stun animation to cancel self
 
-setup launch state
+level barriers
 
 DO LATER : --------------------------------------------------------------------------
+
+player stun animation
 
 sound effects dive
 

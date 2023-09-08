@@ -14,6 +14,8 @@ public partial class HitHandler : Node2D
 	public int hitstop;
     public bool inHitstop;
 
+    public bool launched; // special state that prevents recovery of stun unless grounded
+
     public override void _Ready()
 	{
         owner = (CharacterBody2D)GetParent();
@@ -45,7 +47,11 @@ public partial class HitHandler : Node2D
         if (hitstun > 0){
             inHitstun = true;
             if (!inHitstop){
-                hitstun--;
+                if (!owner.IsOnFloor() && launched){
+                    // if target is launched, hitstun will only decay if grounded
+                } else {
+                    hitstun--;
+                }  
             }
         } else {
             inHitstun = false;
