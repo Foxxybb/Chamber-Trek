@@ -262,10 +262,16 @@ public partial class Bashbox : CharacterBody2D
 
 	// function to manually switch animation states
 	public void ChangeAnimationState(string newState){
-
 		//stop self interruption
 		if (anState == newState){
-			return;
+			// switch statement contains all animations that can cancel into themselves
+			switch (newState){
+				case STUN:
+					an.Stop();
+					break;
+				default:
+					return;
+			}
 		}
 
 		// play animation
@@ -295,6 +301,8 @@ public partial class Bashbox : CharacterBody2D
 			// IsPlaying
 			switch (anState){
 				case SLEEP:
+					break;
+				case STUN:
 					break;
 				default:
 					break;

@@ -31,6 +31,7 @@ public partial class Player : CharacterBody2D
 
 	public Vector2 dashSpeed = new Vector2(400,0); // velocity Vector2 of dash
 	public int dashTime = 16;
+	Random rand = new Random();
 
 	//[Header("Attack Info")]
 	public string playerStateDebug = "";
@@ -55,7 +56,7 @@ public partial class Player : CharacterBody2D
 	public bool spawning; // used for initiating spawn sequence on level start
 
 	int altInt = 1; // alternating int for hitshake
-	public float hitshakeIntensity = 30.0f;
+	public float hitshakeIntensity = 0.8f;
 	
 	private bool inHitstop; // used to pause animator and extend attack duration
 	public bool InHitstop{
@@ -124,6 +125,7 @@ public partial class Player : CharacterBody2D
 	const string DASHB = "dashb";
 	const string AIRDASHF = "airdashf";
 	const string AIRDASHB = "airdashb";
+	const string STUN = "stun";
 	
 	#endregion
 
@@ -406,10 +408,17 @@ public partial class Player : CharacterBody2D
 		if (InHitstop){
 			
 			// hitshake
-			// if (hh.inHitstun){
-			//     sprite.transform.localPosition = new Vector3((hh.hitstop/hitshakeIntensity)*altInt, sprite.transform.localPosition.y);
-			//     altInt = altInt*(-1);
-			// }
+			if (hh.inHitstun){
+				if (IsOnFloor()){
+					// grounded hitshake
+					an.Offset = new Vector2((hh.hitstop/hitshakeIntensity)*altInt, 0);
+					altInt = altInt*(-1);
+				} else {
+					an.Offset = new Vector2((hh.hitstop/hitshakeIntensity)*altInt, (hh.hitstop/hitshakeIntensity)*rand.Next(-1,1));
+					altInt = altInt*(-1);
+				}
+				
+			}
 
 			Velocity = Vector2.Zero;
 		} else {
@@ -475,7 +484,23 @@ public partial class Player : CharacterBody2D
 
 		//stop self interruption
 		if (anState == newState){
-			return;
+			// switch statement contains all animations that can cancel into themselves
+			switch (newState){
+				case DASHF:
+					an.Stop();
+					break;
+				case DASHB:
+					an.Stop();
+					break;
+				case AIRDASHF:
+					an.Stop();
+					break;
+				case AIRDASHB:
+					an.Stop();
+					break;
+				default:
+					return;
+			}
 		}
 
 		// play animation

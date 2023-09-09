@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpyxhjy0y3nwq"]
+[gd_scene load_steps=16 format=3 uid="uid://bpyxhjy0y3nwq"]
 
 [ext_resource type="Script" path="res://Scripts/GameScene.cs" id="1_10fwn"]
 [ext_resource type="PackedScene" uid="uid://udt21vw7twa2" path="res://Prefabs/Camera.tscn" id="2_cymoo"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://b6gvpkkwsfn2o" path="res://Backgrounds/level1ForeCrop.png" id="11_6bq04"]
 [ext_resource type="Texture2D" uid="uid://dbvs1s2kd13fj" path="res://Backgrounds/level1Back.png" id="11_7ct28"]
 [ext_resource type="PackedScene" uid="uid://d3bwvqppbjrhd" path="res://Prefabs/Bashbox.tscn" id="14_cb6sg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kop3a"]
+size = Vector2(40, 720)
 
 [node name="Scene" type="Node2D"]
 z_as_relative = false
@@ -96,7 +99,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327682, 0, 0, 327683, 0, 0, 327685, 0, 0, 327686, 0, 0, 327688, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_s3oau")]
-position = Vector2(1360, 600)
+position = Vector2(1120, 440)
 
 [node name="Box" parent="." instance=ExtResource("7_t4fqc")]
 position = Vector2(800, 200)
@@ -114,3 +117,18 @@ goalOffset = Vector2(0, 2)
 [node name="Bashbox" parent="." instance=ExtResource("14_cb6sg")]
 position = Vector2(1640, 600)
 facingRight = false
+
+[node name="Barrier" type="Node2D" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="Barrier"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Left"]
+position = Vector2(-20, 360)
+shape = SubResource("RectangleShape2D_kop3a")
+
+[node name="Right" type="StaticBody2D" parent="Barrier"]
+position = Vector2(1960, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Right"]
+position = Vector2(-20, 360)
+shape = SubResource("RectangleShape2D_kop3a")

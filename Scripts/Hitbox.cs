@@ -74,6 +74,8 @@ public partial class Hitbox : Node2D
 				case "Bashbox":
 					ownerHH.ApplyHit(0, hitstop, selfKnockback);
 					victimHH.ApplyHit(hitstun, hitstop, knockback);
+					Bashbox bb = (Bashbox)body; // get bashbox script
+					bb.ChangeAnimationState("stun");
 					victimHH.launched = hitboxAction.launcher;
 					SoundManager.Instance.PlaySoundAtNode(hitboxAction.hitSound, hitboxOwner, 0);
 					break;

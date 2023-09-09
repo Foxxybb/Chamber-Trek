@@ -1,13 +1,10 @@
 
 DO NOW : ----------------------------------------------------------------------------
 
-allow stun animation to cancel self
-
-level barriers
+player stun animation
 
 DO LATER : --------------------------------------------------------------------------
 
-player stun animation
 
 sound effects dive
 
