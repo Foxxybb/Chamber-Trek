@@ -47,8 +47,8 @@ public partial class HitHandler : Node2D
         if (hitstun > 0){
             inHitstun = true;
             if (!inHitstop){
-                if (!owner.IsOnFloor() && launched){
-                    // if target is launched, hitstun will only decay if grounded
+                if (!owner.IsOnFloor()){
+                    // hitstun will only decay if grounded
                 } else {
                     hitstun--;
                 }  

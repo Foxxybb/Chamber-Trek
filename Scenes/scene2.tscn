@@ -42,6 +42,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 0, 1, 1)
 
+[node name="Barrier" type="Node2D" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="Barrier"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Left"]
+position = Vector2(-20, 360)
+shape = SubResource("RectangleShape2D_kop3a")
+
+[node name="Right" type="StaticBody2D" parent="Barrier"]
+position = Vector2(1960, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Right"]
+position = Vector2(-20, 360)
+shape = SubResource("RectangleShape2D_kop3a")
+
 [node name="Camera2D" parent="." instance=ExtResource("2_cymoo")]
 position = Vector2(640, 360)
 
@@ -99,7 +114,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327682, 0, 0, 327683, 0, 0, 327685, 0, 0, 327686, 0, 0, 327688, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_s3oau")]
-position = Vector2(1120, 440)
+position = Vector2(1320, 600)
 
 [node name="Box" parent="." instance=ExtResource("7_t4fqc")]
 position = Vector2(800, 200)
@@ -115,20 +130,5 @@ position = Vector2(800, 240)
 goalOffset = Vector2(0, 2)
 
 [node name="Bashbox" parent="." instance=ExtResource("14_cb6sg")]
-position = Vector2(1640, 600)
+position = Vector2(1120, 440)
 facingRight = false
-
-[node name="Barrier" type="Node2D" parent="."]
-
-[node name="Left" type="StaticBody2D" parent="Barrier"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Left"]
-position = Vector2(-20, 360)
-shape = SubResource("RectangleShape2D_kop3a")
-
-[node name="Right" type="StaticBody2D" parent="Barrier"]
-position = Vector2(1960, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier/Right"]
-position = Vector2(-20, 360)
-shape = SubResource("RectangleShape2D_kop3a")

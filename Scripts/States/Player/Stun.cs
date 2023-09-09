@@ -14,7 +14,6 @@ public partial class Stun : State
     {
         base.Enter();
         player.playerStateDebug = "stun";
-        player.ChangeAnimationState("fall");
         player.an.SelfModulate = Color.Color8(255,0,0,255);
 
         // cancel sounds
@@ -27,8 +26,8 @@ public partial class Stun : State
 
         // exit hitstun
         if (!player.InHitstun){
-            player.playerSM.ChangeState(player.air);
-            //player.ChangeAnimationState("fall");
+            player.playerSM.ChangeState(player.idle);
+            player.ChangeAnimationState("idle");
         }
         
     }

@@ -105,10 +105,13 @@ public partial class BashAction : State
     public override void Exit()
     {
         base.Exit();
+        GD.Print("bash action exit");
+        GD.Print(hitboxActive);
         // destroy hitbox in the case that player is interrupted
         if (hitboxActive){
-            hitboxActive = false;
             hitbox.DestroyHitbox();
+            hitboxActive = false;
+            
         }
     }
 
@@ -149,11 +152,13 @@ public partial class BashAction : State
             if (!bashbox.InHitstop) active--;
         } else if (active < 0){
             // hitbox does not expire if active == -1
+            //if (!hitboxActive) hitboxActive = true;
         } else {
             // delete hitbox
             if (hitboxActive){
                 hitboxActive = false;
                 hitbox.DestroyHitbox();
+                
             }
         }
     }

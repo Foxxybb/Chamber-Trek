@@ -50,9 +50,10 @@ public partial class Hitbox : Node2D
 					}
 					break;
 				case "Player":
-					GD.Print("player hit");
 					ownerHH.ApplyHit(0, hitstop, selfKnockback);
 					victimHH.ApplyHit(hitstun, hitstop, knockback);
+					Player player = (Player)body; // get bashbox script
+					player.ChangeAnimationState("stun");
 					SoundManager.Instance.PlaySoundAtNode(hitboxAction.hitSound, hitboxOwner, 0);
 					break;
 				case "Box":
@@ -95,6 +96,7 @@ public partial class Hitbox : Node2D
 
     public void DestroyHitbox()
     {
+		GD.Print("destroy hitbox");
         this.QueueFree();
     }
 }

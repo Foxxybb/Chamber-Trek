@@ -22,7 +22,8 @@ public partial class Bashbox : CharacterBody2D
 	public HitHandler hh; // handles hitstop/hitstun
 	public AnimatedSprite2D an;
 	public Label la; // used to display state
-	public Area2D detector;
+	public Area2D vision; // wakes
+	public Area2D aggro; // triggers attack
 
 	int altInt = 1; // alternating int for hitshake
 	public float hitshakeIntensity = 0.8f;
@@ -90,7 +91,8 @@ public partial class Bashbox : CharacterBody2D
 		la.Visible = Oracle.Instance.myDebug;
 
 		hh = GetNode<HitHandler>("HitHandler");
-		detector = GetNode<Area2D>("Area2D");
+		vision = GetNode<Area2D>("Vision");
+		aggro = GetNode<Area2D>("Aggro");
 
 		playerNode = GetNode<Node2D>("/root/Scene/Player/");
 
@@ -116,7 +118,7 @@ public partial class Bashbox : CharacterBody2D
 		bashboxSM.currentState.UpdateLogic(delta);
 
 		// if player detected
-		if(detector.OverlapsBody(playerNode)){
+		if(vision.OverlapsBody(playerNode)){
 			//GD.Print("player near");
 			if (bashboxSM.currentState == sleep){
 				
@@ -132,8 +134,11 @@ public partial class Bashbox : CharacterBody2D
 					SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.bashbox_wake, this, 0);
 					waking = true;
 				}
-				
-			} else if (bashboxSM.currentState == idle){
+			}
+		}
+
+		if (aggro.OverlapsBody(playerNode)){
+			if (bashboxSM.currentState == idle){
 				// turn around if player is behind
 				if(playerNode.Position.X > Position.X){
 					facingRight = true;

@@ -170,7 +170,6 @@ public partial class PlayerAction : State
                         player.ChangeAnimationState("land");
                     }
                 }
-                
             }
         }
 

@@ -498,6 +498,9 @@ public partial class Player : CharacterBody2D
 				case AIRDASHB:
 					an.Stop();
 					break;
+				case STUN:
+					an.Stop();
+					break;
 				default:
 					return;
 			}
