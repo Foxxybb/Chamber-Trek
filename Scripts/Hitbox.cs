@@ -46,7 +46,7 @@ public partial class Hitbox : Node2D
 						CharacterBody2D cb = (CharacterBody2D)hitboxOwner;
 						cb.Velocity = stageKnockback;
 						// play stagebounce sound
-						SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.wallbounce, hitboxOwner, -1);
+						SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.wallbounce, hitboxOwner, -1);
 					}
 					break;
 				case "Player":
@@ -59,7 +59,7 @@ public partial class Hitbox : Node2D
 				case "Box":
 					ownerHH.ApplyHit(0, hitstop, selfKnockback);
 					victimHH.ApplyHit(hitstun, hitstop, knockback);
-					SoundManager.Instance.PlaySoundAtNode(hitboxAction.hitSound, hitboxOwner, 0);
+					SoundManager.Instance.PlaySoundOnNode(hitboxAction.hitSound, hitboxOwner, 0);
 					break;
 				case "Key":
 					Key key = (Key)victimHH.GetParent();
@@ -69,7 +69,7 @@ public partial class Hitbox : Node2D
 						ownerHH.ApplyHit(0, hitstop, selfKnockback);
 						victimHH.ApplyHit(hitstun, hitstop, knockback);
 						// play key note
-						SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.GetKeyNote(), key, 0);
+						SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.GetKeyNote(), key, 0);
 					}
 					break;
 				case "Bashbox":
@@ -96,7 +96,6 @@ public partial class Hitbox : Node2D
 
     public void DestroyHitbox()
     {
-		GD.Print("destroy hitbox");
         this.QueueFree();
     }
 }

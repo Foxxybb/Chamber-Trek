@@ -1,7 +1,9 @@
 
 DO NOW : ----------------------------------------------------------------------------
 
-attack trades
+moving platform jitters
+
+stacking character bodies (make them bounce?)
 
 DO LATER : --------------------------------------------------------------------------
 

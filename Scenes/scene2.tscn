@@ -114,7 +114,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327682, 0, 0, 327683, 0, 0, 327685, 0, 0, 327686, 0, 0, 327688, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_s3oau")]
-position = Vector2(1320, 600)
+position = Vector2(520, 360)
 
 [node name="Box" parent="." instance=ExtResource("7_t4fqc")]
 position = Vector2(800, 200)
@@ -130,5 +130,5 @@ position = Vector2(800, 240)
 goalOffset = Vector2(0, 2)
 
 [node name="Bashbox" parent="." instance=ExtResource("14_cb6sg")]
-position = Vector2(1120, 440)
+position = Vector2(1520, 600)
 facingRight = false

@@ -35,9 +35,9 @@ public partial class PlayerAction : State
         player.playerStateDebug = "action";
         thisAction = player.currentAction;
         if (thisAction.cancelSound){
-            SoundManager.Instance.CutSoundsAtNode(player);
+            SoundManager.Instance.CutSoundsOnNode(player);
         }
-        SoundManager.Instance.PlaySoundAtNode(thisAction.swingSound, player, 0);
+        SoundManager.Instance.PlaySoundOnNode(thisAction.swingSound, player, 0);
         currentActionFrame = 0; // just counting how many frames the action has lasted
 		duration = player.currentAction.duration;
         startup = player.currentAction.startup;

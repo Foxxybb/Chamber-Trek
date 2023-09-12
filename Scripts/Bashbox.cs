@@ -131,7 +131,7 @@ public partial class Bashbox : CharacterBody2D
 					}
 					ChangeAnimationState(WAKE);
 
-					SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.bashbox_wake, this, 0);
+					SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.bashbox_wake, this, 0);
 					waking = true;
 				}
 			}

@@ -17,7 +17,7 @@ public partial class BashStun : State
         //bashbox.ChangeAnimationState("stun");
 
         // cancel sounds
-        SoundManager.Instance.CutSoundsAtNode(bashbox);
+        SoundManager.Instance.CutSoundsOnNode(bashbox);
 
     }
 

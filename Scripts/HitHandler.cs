@@ -30,7 +30,7 @@ public partial class HitHandler : Node2D
 
     public void ApplyHit(int newHitstun, int newHitstop, Vector2 newKnockback)
     {
-        hitstun = newHitstun;
+        hitstun += newHitstun; // temp fix for trade hits recovering hitstun
         hitstop = newHitstop;
 
         // if knockback is 0, get current velocity of owner and store it

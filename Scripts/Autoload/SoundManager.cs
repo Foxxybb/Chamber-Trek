@@ -107,8 +107,8 @@ public partial class SoundManager : Node
 		return key_note_pool[rand.Next(0,5)];
 	}
 
-	// optional volume adjustment with (db) parameter
-	public void PlaySoundAtNode(AudioStreamWav sound, Node2D node, float db){
+	// this method adds the audioshot as a child to the node
+	public void PlaySoundOnNode(AudioStreamWav sound, Node2D node, float db){ // optional volume adjustment with (db) parameter
 		// add new custom AudioStreamPlayer2D to node,
 		AudioShot newAudioShot = (AudioShot)Database.Instance.audioShot.Instantiate();
 		newAudioShot.AddToGroup("AudioShots");
@@ -118,10 +118,23 @@ public partial class SoundManager : Node
 		newAudioShot.Stream = sound;
 		newAudioShot.Play();
 		// the Audioshot script should then queueFree the node when audio is finished playing
-
 	}
 
-	public void CutSoundsAtNode(Node2D node){
+	// this method creates an audioshot at the node's location as a child of the scene
+	public void PlaySoundAtNode(AudioStreamWav sound, Node2D node, float db){ // optional volume adjustment with (db) parameter
+		// add new custom AudioStreamPlayer2D to node,
+		AudioShot newAudioShot = (AudioShot)Database.Instance.audioShot.Instantiate();
+		newAudioShot.AddToGroup("AudioShots");
+		GetNode<Node2D>("/root/Scene").AddChild(newAudioShot);
+		newAudioShot.Position = node.Position;
+		// then play sound from that node,
+		newAudioShot.VolumeDb = db;
+		newAudioShot.Stream = sound;
+		newAudioShot.Play();
+		// the Audioshot script should then queueFree the node when audio is finished playing
+	}
+
+	public void CutSoundsOnNode(Node2D node){
 		// get all sound source children of player and remove them
         var currentSounds = GetTree().GetNodesInGroup("AudioShots");
         foreach (var sound in currentSounds){

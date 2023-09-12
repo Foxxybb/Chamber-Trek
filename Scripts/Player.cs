@@ -246,7 +246,7 @@ public partial class Player : CharacterBody2D
 
 	public void Jump(){
 		//SoundManager.Instance.PlayPlayerSound(Database.Instance.jump);
-		SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.player_jump, this, 0);
+		SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_jump, this, 0);
 
 		// rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 		// rb.velocity = new Vector2(rb.velocity.x,jumpForce);
@@ -260,7 +260,7 @@ public partial class Player : CharacterBody2D
 	}
 
 	public void Land(){
-		SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.player_land, this, 0);
+		SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_land, this, 0);
 	}
 
 	//grounded punch combo
@@ -341,7 +341,7 @@ public partial class Player : CharacterBody2D
 
 			//au.Stream = SoundManager.Instance.dash;
 			//au.Play();
-			SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.player_dash, this, 0);
+			SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_dash, this, 0);
 		} else {
 			// play backfire sound
 			//SoundManager.Instance.PlayPlayerSound(Database.Instance.blip);
@@ -589,14 +589,14 @@ public partial class Player : CharacterBody2D
 			switch (anState){
 				case RUN:
 					if (an.Frame == 1){
-						SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.player_step2, this, 4);
+						SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_step2, this, 4);
 					} else if (an.Frame == 20){
-						SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.player_step1, this, 4);
+						SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_step1, this, 4);
 					}
 					break;
 				case RUNSTOP:
 					if (an.Frame == 8){
-						SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.player_step1, this, 4);
+						SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_step1, this, 4);
 					}
 					break;
 				case JUMP:

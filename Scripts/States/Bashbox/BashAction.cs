@@ -43,7 +43,7 @@ public partial class BashAction : State
 
         bashbox.ChangeAnimationState(thisAction.name);
 
-        SoundManager.Instance.PlaySoundAtNode(thisAction.swingSound, bashbox, 0);
+        SoundManager.Instance.PlaySoundOnNode(thisAction.swingSound, bashbox, 0);
 
         // apply action force if forceDelay==0
         if (thisAction.forceDelay==0){
@@ -105,8 +105,6 @@ public partial class BashAction : State
     public override void Exit()
     {
         base.Exit();
-        GD.Print("bash action exit");
-        GD.Print(hitboxActive);
         // destroy hitbox in the case that player is interrupted
         if (hitboxActive){
             hitbox.DestroyHitbox();

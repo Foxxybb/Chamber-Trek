@@ -17,7 +17,7 @@ public partial class Stun : State
         player.an.SelfModulate = Color.Color8(255,0,0,255);
 
         // cancel sounds
-        SoundManager.Instance.CutSoundsAtNode(player);
+        SoundManager.Instance.CutSoundsOnNode(player);
     }
 
     public override void UpdateLogic(double delta)
