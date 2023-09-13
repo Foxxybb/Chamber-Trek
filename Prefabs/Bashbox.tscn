@@ -10,10 +10,10 @@
 [ext_resource type="Script" path="res://Scripts/States/Bashbox/BashStun.cs" id="7_n8pku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jg3de"]
-size = Vector2(80, 80)
+size = Vector2(80, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebpyb"]
-size = Vector2(800, 400)
+size = Vector2(800, 480)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3jqx"]
 size = Vector2(480, 160)
@@ -22,6 +22,7 @@ size = Vector2(480, 160)
 script = ExtResource("1_mby11")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_jg3de")
 
 [node name="HitHandler" type="Node2D" parent="."]

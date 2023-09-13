@@ -1,7 +1,7 @@
 
 DO NOW : ----------------------------------------------------------------------------
 
-moving platform jitters
+detecting bodies on top of other bodies
 
 stacking character bodies (make them bounce?)
 

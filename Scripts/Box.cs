@@ -45,6 +45,9 @@ public partial class Box : CharacterBody2D
 
 	public override void _Ready()
 	{
+		SafeMargin = 0.01f;
+		PlatformOnLeave = PlatformOnLeaveEnum.DoNothing;
+
 		hh = GetNode<HitHandler>("HitHandler");
 
 		// Add animated sprite component from database as child node, hide sprite placeholder

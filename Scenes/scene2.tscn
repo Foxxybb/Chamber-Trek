@@ -111,23 +111,23 @@ script = ExtResource("8_rga2h")
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = ExtResource("5_a3k7w")
 format = 2
-layer_0/tile_data = PackedInt32Array(327682, 0, 0, 327683, 0, 0, 327685, 0, 0, 327686, 0, 0, 327688, 0, 0)
+layer_0/tile_data = PackedInt32Array(327682, 0, 0, 327683, 0, 0, 327685, 0, 0, 327686, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_s3oau")]
-position = Vector2(520, 360)
+position = Vector2(520, 600)
 
 [node name="Box" parent="." instance=ExtResource("7_t4fqc")]
-position = Vector2(800, 200)
+position = Vector2(640, 160)
 
 [node name="Key" parent="." instance=ExtResource("8_22sa6")]
-position = Vector2(640, 600)
+position = Vector2(800, 600)
 
 [node name="Door" parent="." instance=ExtResource("9_tm7dw")]
 position = Vector2(240, 560)
 
 [node name="MoverHome" parent="." instance=ExtResource("10_hlf25")]
-position = Vector2(800, 240)
-goalOffset = Vector2(0, 2)
+position = Vector2(640, 200)
+goalOffset = Vector2(0, 3)
 
 [node name="Bashbox" parent="." instance=ExtResource("14_cb6sg")]
 position = Vector2(1520, 600)
