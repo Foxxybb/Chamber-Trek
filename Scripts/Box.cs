@@ -210,6 +210,12 @@ public partial class Box : CharacterBody2D
 
 			Velocity = velocity;
 			MoveAndSlide();
+
+			// check body collisions
+			for (int i = 0; i < GetSlideCollisionCount(); i++){
+				var coll = GetSlideCollision(i);
+				//GD.Print("Box collision with: ", (coll.GetCollider() as Node).Name);
+			}
 		}
 	}
 }

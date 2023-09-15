@@ -117,16 +117,16 @@ layer_0/tile_data = PackedInt32Array(327682, 0, 0, 327683, 0, 0, 327685, 0, 0, 3
 position = Vector2(520, 600)
 
 [node name="Box" parent="." instance=ExtResource("7_t4fqc")]
-position = Vector2(640, 160)
+position = Vector2(880, 600)
 
 [node name="Key" parent="." instance=ExtResource("8_22sa6")]
-position = Vector2(800, 600)
+position = Vector2(720, 600)
 
 [node name="Door" parent="." instance=ExtResource("9_tm7dw")]
 position = Vector2(240, 560)
 
 [node name="MoverHome" parent="." instance=ExtResource("10_hlf25")]
-position = Vector2(640, 200)
+position = Vector2(640, 120)
 goalOffset = Vector2(0, 3)
 
 [node name="Bashbox" parent="." instance=ExtResource("14_cb6sg")]

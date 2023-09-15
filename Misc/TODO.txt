@@ -1,8 +1,6 @@
 
 DO NOW : ----------------------------------------------------------------------------
 
-detecting bodies on top of other bodies
-
 stacking character bodies (make them bounce?)
 
 DO LATER : --------------------------------------------------------------------------

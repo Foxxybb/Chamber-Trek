@@ -197,6 +197,7 @@ public partial class Player : CharacterBody2D
 			// 	MoveAndSlide();
 			// }
 			//GD.Print(GetPlatformVelocity());
+			
 		}
 	}
 
@@ -207,6 +208,19 @@ public partial class Player : CharacterBody2D
 		if (!InHitstop){
 			playerSM.currentState.UpdatePhysics(delta);
 			MoveAndSlide();
+
+			// move this to it's own function
+			// check body collisions
+			for (int i = 0; i < GetSlideCollisionCount(); i++){
+				var coll = GetSlideCollision(i);
+				
+
+				//GD.Print("Normal: " + coll.GetNormal());
+				if (coll.GetNormal() == new Vector2(0,-1)){
+					//GD.Print("player on top");
+					GD.Print(coll.GetCollider().GetType().ToString()); 
+				}
+			}
 		}
 	}
 
