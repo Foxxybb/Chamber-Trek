@@ -1,7 +1,8 @@
 
 DO NOW : ----------------------------------------------------------------------------
 
-stacking character bodies (make them bounce?)
+tune bounciness
+add sounds to bounces
 
 DO LATER : --------------------------------------------------------------------------
 

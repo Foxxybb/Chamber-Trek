@@ -209,18 +209,8 @@ public partial class Player : CharacterBody2D
 			playerSM.currentState.UpdatePhysics(delta);
 			MoveAndSlide();
 
-			// move this to it's own function
-			// check body collisions
-			for (int i = 0; i < GetSlideCollisionCount(); i++){
-				var coll = GetSlideCollision(i);
-				
-
-				//GD.Print("Normal: " + coll.GetNormal());
-				if (coll.GetNormal() == new Vector2(0,-1)){
-					//GD.Print("player on top");
-					GD.Print(coll.GetCollider().GetType().ToString()); 
-				}
-			}
+			CheckBodyCollisions();
+			
 		}
 	}
 
@@ -277,7 +267,7 @@ public partial class Player : CharacterBody2D
 	}
 
 	public void Land(){
-		SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_land, this, 0);
+		SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.player_land, this, 0);
 	}
 
 	//grounded punch combo
@@ -636,6 +626,28 @@ public partial class Player : CharacterBody2D
 					break;
 				default:
 					break;
+			}
+		}
+	}
+
+	void CheckBodyCollisions(){
+		// check body collisions
+		for (int i = 0; i < GetSlideCollisionCount(); i++){
+			var coll = GetSlideCollision(i);
+
+			//GD.Print("Normal: " + coll.GetNormal());
+			if (coll.GetNormal() == new Vector2(0,-1)){
+				//GD.Print("player on top");
+				//GD.Print(coll.GetCollider().GetType().ToString()); 
+				switch(coll.GetCollider().GetType().ToString()){
+					case "Key":
+						GD.Print("on key");
+						Velocity = new Vector2(-200,-200);
+						break;
+					default:
+						break;
+
+				}
 			}
 		}
 	}
