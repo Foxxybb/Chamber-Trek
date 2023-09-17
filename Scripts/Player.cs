@@ -54,6 +54,7 @@ public partial class Player : CharacterBody2D
 	public int fallTimer; // tracks how long player has been airborne (in frames)
 	public bool atDoor;
 	public bool spawning; // used for initiating spawn sequence on level start
+	public bool bounced;
 
 	int altInt = 1; // alternating int for hitshake
 	public float hitshakeIntensity = 0.8f;
@@ -104,6 +105,7 @@ public partial class Player : CharacterBody2D
 	public PlayerAction action;
 	public Dash dash;
 	public Stun stun;
+	//public Bounce bounce;
 	
 	public AnimatedSprite2D an; // public Animator an;
 	public Label la; // used to display state
@@ -267,7 +269,13 @@ public partial class Player : CharacterBody2D
 	}
 
 	public void Land(){
-		SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.player_land, this, 0);
+		SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_land, this, 0);
+		bounced = false;
+		if (dpad.X != 0){
+			ChangeAnimationState(LANDRUN);
+		} else {
+			ChangeAnimationState(LAND);
+		}
 	}
 
 	//grounded punch combo
@@ -534,22 +542,8 @@ public partial class Player : CharacterBody2D
 					ChangeAnimationState(IDLE);
 					break;
 				case JUMP:
-					if (IsOnFloor()){
-						if (dpad.X != 0){
-							ChangeAnimationState(LANDRUN);
-						} else {
-							ChangeAnimationState(LAND);
-						}
-					}
 					break;
 				case FALL:
-					if (IsOnFloor()){
-						if (dpad.X != 0){
-							ChangeAnimationState(LANDRUN);
-						} else {
-							ChangeAnimationState(LAND);
-						}
-					}
 					break;
 				case LAND:
 					ChangeAnimationState(IDLE);
@@ -607,22 +601,8 @@ public partial class Player : CharacterBody2D
 					}
 					break;
 				case JUMP:
-					if (IsOnFloor()){
-						if (dpad.X != 0){
-							ChangeAnimationState(LANDRUN);
-						} else {
-							ChangeAnimationState(LAND);
-						}
-					}
 					break;
 				case FALL:
-					if (IsOnFloor()){
-						if (dpad.X != 0){
-							ChangeAnimationState(LANDRUN);
-						} else {
-							ChangeAnimationState(LAND);
-						}
-					}
 					break;
 				default:
 					break;
@@ -633,16 +613,32 @@ public partial class Player : CharacterBody2D
 	void CheckBodyCollisions(){
 		// check body collisions
 		for (int i = 0; i < GetSlideCollisionCount(); i++){
+			int bounceDir = 1;
+			// get collision info
 			var coll = GetSlideCollision(i);
 
+			// get position of characterbody
+			try {
+				CharacterBody2D thisBody = (CharacterBody2D)coll.GetCollider();
+				// check relative position.X
+				if ((thisBody != null) && (thisBody.Position.X > Position.X)){
+					bounceDir = -1;
+				}
+			} catch {
+				// this collision is not a characterbody
+			}
+
 			//GD.Print("Normal: " + coll.GetNormal());
+			// if player is collides from above
 			if (coll.GetNormal() == new Vector2(0,-1)){
 				//GD.Print("player on top");
 				//GD.Print(coll.GetCollider().GetType().ToString()); 
 				switch(coll.GetCollider().GetType().ToString()){
 					case "Key":
-						GD.Print("on key");
-						Velocity = new Vector2(-200,-200);
+						playerSM.ChangeState(air);
+						bounced = true;
+						Velocity = new Vector2(300*bounceDir,-300);
+						SoundManager.Instance.PlaySoundAtNode(SoundManager.Instance.bounce, this, -10);
 						break;
 					default:
 						break;

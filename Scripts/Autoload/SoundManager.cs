@@ -38,6 +38,7 @@ public partial class SoundManager : Node
 	public AudioStreamWav door_lock;
 	public AudioStreamWav door_open;
 	public AudioStreamWav wallbounce;
+	public AudioStreamWav bounce;
 
 	
 
@@ -89,6 +90,7 @@ public partial class SoundManager : Node
 		door_lock = (AudioStreamWav)GD.Load("res://Audio/Sound/doorLock.wav");
 		door_open = (AudioStreamWav)GD.Load("res://Audio/Sound/DoorOpen.wav");
 		wallbounce = (AudioStreamWav)GD.Load("res://Audio/Sound/StageBounce.wav");
+		bounce = (AudioStreamWav)GD.Load("res://Audio/Sound/bounce.wav");
 	}
 
 	public void PlayMusic(AudioStreamWav track){
