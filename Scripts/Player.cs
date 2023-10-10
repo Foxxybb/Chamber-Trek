@@ -254,7 +254,6 @@ public partial class Player : CharacterBody2D
 	}
 
 	public void Jump(){
-		//SoundManager.Instance.PlayPlayerSound(Database.Instance.jump);
 		SoundManager.Instance.PlaySoundOnNode(SoundManager.Instance.player_jump, this, 0);
 
 		// rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);

@@ -40,8 +40,6 @@ public partial class SoundManager : Node
 	public AudioStreamWav wallbounce;
 	public AudioStreamWav bounce;
 
-	
-
 	public override void _Ready()
 	{
 		Instance = this;
